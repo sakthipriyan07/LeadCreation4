@@ -96,10 +96,10 @@ Thread.sleep(6000);
 //				"//button[@class='c-button-unstyled c-icon_button c-icon_button--size_small c-wysiwyg_container__button c-wysiwyg_container__button--send c-wysiwyg_container__button--disabled c-button--disabled c-icon_button--default']")));
 //		sendButton.click();
 		
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_U);
-		robot.keyRelease(KeyEvent.VK_U);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
+
+		uploadButton1.click();
+		
+		uploadButton.click();
 Thread.sleep(6000);
 		// Add dynamic file path or make it configurable
 		String Extentreport = "\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation4\\" + Date1 + "\\extentreport.html";
@@ -107,6 +107,8 @@ Thread.sleep(6000);
 		uploadFileWithRobot1(robot, Extentreport);
 		WebElement sendButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 			"//button[@aria-label='Send now']")));
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
 		sendButton.click();
 	}
 	private void uploadFileWithRobot(Robot robot, String filePath) throws InterruptedException {
@@ -126,7 +128,7 @@ Thread.sleep(6000);
 			int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
 			robot.keyPress(keyCode);
 			robot.keyRelease(keyCode);
-			Thread.sleep(4000);
+			
 		}
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
