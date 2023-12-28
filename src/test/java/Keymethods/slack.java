@@ -24,7 +24,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 public class slack {
-	public WebDriver driver;
+	
 SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 String Date1 = dateFormat.format(new Date());
 	@Test
