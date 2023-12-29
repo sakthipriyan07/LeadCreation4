@@ -117,12 +117,19 @@ Thread.sleep(6000);
 //		WebElement sendButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 //				"//button[@class='c-button-unstyled c-icon_button c-icon_button--size_small c-wysiwyg_container__button c-wysiwyg_container__button--send c-wysiwyg_container__button--disabled c-button--disabled c-icon_button--default']")));
 //		sendButton.click();
-		
-Thread.sleep(9000);
-		uploadButton1.click();
-		Thread.sleep(7000);
-		uploadButton.click();
-Thread.sleep(8000);
+		try {
+			Thread.sleep(9000);
+			uploadButton1.click();
+			Thread.sleep(7000);
+			uploadButton.click();
+	Thread.sleep(8000);
+		} catch (Exception e) {
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_U);
+			robot.keyRelease(KeyEvent.VK_U);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+		}
+
 		// Add dynamic file path or make it configurable
 		String Extentreport = "\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation4\\" + Date1 + "\\extentreport.html";
 		// Perform file upload actions using Robot class
