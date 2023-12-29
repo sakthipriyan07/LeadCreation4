@@ -58,11 +58,33 @@ String Date1 = dateFormat.format(new Date());
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("shakthi_07");
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Next')]"))).click();
 		// Add your Slack messaging steps here
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[contains(text(),'7')]//parent::div//parent::div)[1]")))
+			.click();
+	
+	Thread.sleep(5000);
+		} catch (Exception e) {
+			// TODO: handle exception
+		
+		// Add your Slack messaging steps here
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(8000);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[contains(text(),'7')]//parent::div//parent::div)[1]")))
 				.click();
 		
-		Thread.sleep(5000);
-				Set<String> handles = driver.getWindowHandles();
+		Thread.sleep(8000);
+		}				Set<String> handles = driver.getWindowHandles();
         // Switch to the second tab
         for (String handle : handles) {
             driver.switchTo().window(handle);
@@ -100,7 +122,7 @@ Thread.sleep(6000);
 		uploadButton1.click();
 		
 		uploadButton.click();
-Thread.sleep(6000);
+Thread.sleep(8000);
 		// Add dynamic file path or make it configurable
 		String Extentreport = "\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation4\\" + Date1 + "\\extentreport.html";
 		// Perform file upload actions using Robot class
@@ -118,10 +140,10 @@ Thread.sleep(6000);
 			robot.keyRelease(keyCode);
 			
 		}
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 	}
 	private void uploadFileWithRobot1(Robot robot, String Extentreport) throws InterruptedException {
 		for (char c : Extentreport.toCharArray()) {
@@ -130,15 +152,16 @@ Thread.sleep(6000);
 			robot.keyRelease(keyCode);
 			
 		}
+		Thread.sleep(8000);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 	}
 	public void ExtenScreenshot(WebDriver driver) throws InterruptedException, IOException {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		String filename = "\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation4\\" + Date1 + "\\extentreport.html";
 		driver.get(filename);
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 		wait.until(
 				ExpectedConditions.elementToBeClickable(By.xpath("//i[@class='fa fa-bar-chart']")))
 				.click();
