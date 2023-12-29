@@ -124,10 +124,12 @@ Thread.sleep(6000);
 			uploadButton.click();
 	Thread.sleep(8000);
 		} catch (Exception e) {
+			Thread.sleep(4000);
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_U);
 			robot.keyRelease(KeyEvent.VK_U);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
+			Thread.sleep(7000);
 		}
 
 		// Add dynamic file path or make it configurable
