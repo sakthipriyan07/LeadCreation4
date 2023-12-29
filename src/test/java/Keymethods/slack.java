@@ -118,9 +118,9 @@ Thread.sleep(6000);
 //				"//button[@class='c-button-unstyled c-icon_button c-icon_button--size_small c-wysiwyg_container__button c-wysiwyg_container__button--send c-wysiwyg_container__button--disabled c-button--disabled c-icon_button--default']")));
 //		sendButton.click();
 		
-
+Thread.sleep(9000);
 		uploadButton1.click();
-		
+		Thread.sleep(7000);
 		uploadButton.click();
 Thread.sleep(8000);
 		// Add dynamic file path or make it configurable
