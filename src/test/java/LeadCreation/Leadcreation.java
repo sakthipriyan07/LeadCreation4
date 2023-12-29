@@ -77,7 +77,7 @@ public class Leadcreation {
 	public void Login() throws InterruptedException, AWTException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 		String Date1 = dateFormat.format(new Date());
-		extentreport = new ExtentReports();
+		extentreport = new ExtentReports(); 
 		htmlReporter = new ExtentSparkReporter(
 				"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation4\\" + Date1 + "\\extentreport.html");
 		// htmlReporter = new
