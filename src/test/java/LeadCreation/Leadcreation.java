@@ -116,8 +116,8 @@ public class Leadcreation {
 	@Test(dataProvider = "itemsdata")
 	public void Customercreation100(String Username,String Screenshot) throws Exception {
 
-	//	Base base = new Base();
-		//base.Base1(Username, extentreport);
+		Base base = new Base();
+		base.Base1(Username, extentreport);
 		
 	}
 
@@ -139,9 +139,9 @@ public class Leadcreation {
 	@AfterSuite
 	public void Mail() throws EmailException {
 		 try {
-		    //    SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+		        SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
 		        Robot robot = new Robot();
-		      //  Mail.main();
+		        Mail.main();
 
 		        slack slackmsg = new slack();
 		        slackmsg.slackMessageTest(driver);
