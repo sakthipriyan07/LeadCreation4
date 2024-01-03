@@ -94,14 +94,15 @@ public class slack {
 		wait.until(
 				ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'use Slack in your browser')]")))
 				.click();
-		
+		Thread.sleep(5000);
 		WebElement channelElement = wait.until(ExpectedConditions.elementToBeClickable(
 				By.xpath("(//span[contains(text(),'automation-testing-reports')])[1]/parent::span/parent::div")));
 		channelElement.click();
+		Thread.sleep(6000);
 		WebElement messageInput = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ql-placeholder']")));
 		messageInput.sendKeys(messageInputdata);
-		Thread.sleep(4000);
+		Thread.sleep(7000);
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_U);
 		robot.keyRelease(KeyEvent.VK_U);
