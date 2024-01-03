@@ -44,10 +44,9 @@ public class Base {
 	String Date11 = dateFormat1.format(new Date());
 	SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMddyyyyM");
 	String Date12 = dateFormat2.format(new Date());
-	SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-	String Date1 = dateFormat.format(new Date());
+	
 
-	public void Base1(String Username, ExtentReports extentreport)
+	public void Base1(String Username, ExtentReports extentreport,String Date1)
 			throws InterruptedException, AWTException, IOException {
 
 		try {

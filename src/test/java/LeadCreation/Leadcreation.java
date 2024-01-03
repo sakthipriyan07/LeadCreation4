@@ -41,10 +41,11 @@ public class Leadcreation {
 	ExtentReports extentreport;
 	ExtentSparkReporter htmlReporter;
 	ExtentTest test;
-
+	SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
+	String Date1 = dateFormat.format(new Date());
 	String[][] data = null;
 
-	@DataProvider(name = "itemsdata") 
+	@DataProvider(name = "itemsdata")
 	public String[][] loginDataProvider() throws BiffException, IOException {
 		data = getExcelData();
 		return data;
@@ -75,9 +76,8 @@ public class Leadcreation {
 
 	@BeforeSuite
 	public void Login() throws InterruptedException, AWTException {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-		String Date1 = dateFormat.format(new Date());
-		extentreport = new ExtentReports(); 
+
+		extentreport = new ExtentReports();
 		htmlReporter = new ExtentSparkReporter(
 				"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation4\\" + Date1 + "\\extentreport.html");
 		// htmlReporter = new
@@ -114,11 +114,11 @@ public class Leadcreation {
 	}
 
 	@Test(dataProvider = "itemsdata")
-	public void Customercreation100(String Username,String Screenshot) throws Exception {
+	public void Customercreation100(String Username, String Screenshot) throws Exception {
 
 		Base base = new Base();
-		base.Base1(Username, extentreport);
-		
+		base.Base1(Username, extentreport,Date1);
+
 	}
 
 	@AfterClass
@@ -138,25 +138,33 @@ public class Leadcreation {
 
 	@AfterSuite
 	public void Mail() throws EmailException {
-		 try {
-		       // SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
-		        Robot robot = new Robot();
-		     //   Mail.main();
+		try {
+			Robot robot = new Robot();
+			String screenshotLocation = "\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation4\\" + Date1
+					+ "\\ExtentreportScreenshot.png";
+			String extentreportLocation = "\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation4\\" + Date1
+					+ "\\extentreport.html";
+			String messageInputdata = "URL response Automation Test Report";
+			
+			
+			
+			SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
+			Mail.main(extentreportLocation, messageInputdata,Date1);
+		    slack slackmsg = new slack();
+			slackmsg.slackMessageTest(driver, screenshotLocation, extentreportLocation, messageInputdata);
 
-		        slack slackmsg = new slack();
-		        slackmsg.slackMessageTest(driver);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+		} catch (Exception e) {
+			// Handle exceptions appropriately, log them
+			e.printStackTrace();
+		} finally {
+			// Ensure that driver is quit even if there is an exception
+			if (driver != null) {
+				driver.quit();
+			}
 
-		        robot.keyPress(KeyEvent.VK_ENTER);
-		        robot.keyRelease(KeyEvent.VK_ENTER);
-		    } catch (Exception e) {
-		        // Handle exceptions appropriately, log them
-		        e.printStackTrace();
-		    } finally {
-		        // Ensure that driver is quit even if there is an exception
-		        if (driver != null) {
-		            driver.quit();
-		        }
-		
+		}
+
 	}
-
-}}
+}

@@ -32,9 +32,8 @@ public class SendMailSSLWithAttachment{
 	static SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 static String Date1 = dateFormat.format(new Date());
 //public static void main(String[] args) throws IOException {
-public void main() throws EmailException{
-	SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
-	String Date1 = dateFormat.format(new Date());
+public void main(String extentreportLocation,String messageInputdata,String Date1) throws EmailException{
+	
 
 	
 	 Properties props = new Properties();
@@ -80,28 +79,28 @@ public void main() throws EmailException{
          			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sakthi.priyan@vakilsearch.com,sakthipriyan071297@gmail.com,senthilkumar@vakilsearch.com,kavitha.jagatheeswaran@vakilsearch.com,saravanan.muthu@vakilsearch.com,selvamani@vakilsearch.com,aejaaz.ghouse@vakilsearch.com,naveen.nagalingam@vakilsearch.com,divya.vijayaraghavan@vakilsearch.com,partha@vakilsearch.com"));
 
                      // Add the subject link
-			message.setSubject("URL Validation");
+			message.setSubject(messageInputdata);
 
 			// Create object to add multimedia type content
 			BodyPart messageBodyPart1 = new MimeBodyPart();
 
 			// Set the body of email
-			messageBodyPart1.setText("URL Response validation");
+			messageBodyPart1.setText(messageInputdata);
 
 			// Create another object to add another content
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();
 			//"C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots"
 			// Mention the file which you want to send
-			String filename = "\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation4\\" + Date1 + "\\extentreport.html";
+		
 		//	String filename = "C:\\Users\\admin\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\extentreport.html";
 			// Create data source and pass the filename
-			DataSource source = new FileDataSource(filename);
+			DataSource source = new FileDataSource(extentreportLocation);
 			
 			// set the handler
 			messageBodyPart2.setDataHandler(new DataHandler(source));
 
 			// set the file
-			messageBodyPart2.setFileName(filename);
+			messageBodyPart2.setFileName(extentreportLocation);
 		
 			//messageBodyPart2.attachFile("C:\\\\Users\\\\admin\\\\git\\\\Automation-Critical-Flow\\\\GRCCriticalflow\\\\Screenshots\\\\\"+Date1+\"\\\\extentreport.html");
 			// Create object of MimeMultipart class
