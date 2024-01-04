@@ -116,8 +116,8 @@ public class Leadcreation {
 	@Test(dataProvider = "itemsdata")
 	public void Customercreation100(String Username, String Screenshot) throws Exception {
 
-		Base base = new Base();
-		base.Base1(Username, extentreport,Date1);
+//		Base base = new Base();
+//		base.Base1(Username, extentreport,Date1);
 
 	}
 
