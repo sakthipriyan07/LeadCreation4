@@ -82,13 +82,13 @@ public class Base {
 		
 	}
 	private void sendStatusToGoogleChat(String message) {
-		String k = "https://chat.googleapis.com/v1/spaces/AAAAltTt55M/messages";
+		String k = "https://chat.googleapis.com/v1/spaces/AAAAgosrJz0/messages";
 		RestAssured.baseURI = k;
 		RequestSpecification httpRequest = RestAssured.given();
 		JsonObject requestParams = new JsonObject();
 		requestParams.addProperty("text", message);
 		httpRequest.queryParam("key", "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI");
-		httpRequest.queryParam("token", "IS9TRk_kE3aSPbwA79mtZqk5Z0xcJfjFYs8h6P04Ltw");
+		httpRequest.queryParam("token", "XPVjYvyGFQPwgsEP3bB3zaxfhfvIvSSHjVeX43-I8hk");
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toString());
 		Response response = httpRequest.request(Method.POST);
