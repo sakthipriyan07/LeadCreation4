@@ -88,7 +88,7 @@ public class Base {
 		JsonObject requestParams = new JsonObject();
 		requestParams.addProperty("text", message);
 		httpRequest.queryParam("key", "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI");
-		httpRequest.queryParam("token", "f4CBg8FJrdaXoi5aS6BCBPjmINjldH4N92eOPfVjwzw");
+		httpRequest.queryParam("token", "IS9TRk_kE3aSPbwA79mtZqk5Z0xcJfjFYs8h6P04Ltw");
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toString());
 		Response response = httpRequest.request(Method.POST);
