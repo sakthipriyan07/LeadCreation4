@@ -117,7 +117,7 @@ public class Leadcreation {
 	public void Customercreation100(String Username, String Screenshot) throws Exception {
 
 		Base base = new Base();
-		base.Base1(Username, extentreport,Date1);
+	base.Base1(Username, extentreport,Date1);
 
 	}
 
