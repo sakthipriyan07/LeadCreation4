@@ -89,17 +89,8 @@ public class Leadcreation {
 
 	@BeforeTest
 	public void Max() throws InterruptedException, AWTException {
-		Driver d = new Driver(driver);
-		WebDriverManager.chromedriver().setup();
-//		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-//		ChromeOptions option = new ChromeOptions();
-//		option.addArguments("incognito");
-//
-//		option.addArguments("start-maximized");
-//		capabilities.setCapability(ChromeOptions.CAPABILITY, option);
-//		option.addArguments("--headless");
-
-		driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "C:\\ChromeDriver\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 
 	}
